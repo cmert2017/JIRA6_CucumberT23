@@ -22,9 +22,16 @@ public class BrowserUtils {
 
     public static void clickOnElement(WebElement element){
 
-        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(element));
 
     }
+
+    public static void visibilityOfElement(WebElement element){
+
+        wait.until(ExpectedConditions.visibilityOf(element));
+
+    }
+
 
 
     public static void clickWithJS(WebElement element){

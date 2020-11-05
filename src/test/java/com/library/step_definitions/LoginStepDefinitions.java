@@ -3,6 +3,7 @@ package com.library.step_definitions;
 import com.library.pages.LoginPage;
 import com.library.utils.ConfigurationReader;
 import com.library.utils.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -46,7 +47,7 @@ public class LoginStepDefinitions {
     @When("user log in as a {string}")
     public void user_log_in_as_a(String string) {
 
-        loginPage.login("student");
+        loginPage.login(string);
     }
 
     @Then("Books should be displayed")
@@ -63,4 +64,16 @@ public class LoginStepDefinitions {
     }
 
 
+    @Then("System should display {string}")
+    public void systemShouldDisplay(String LandingPage) {
+
+        System.out.println("System displays  "+ LandingPage);
+
+
+    }
+
+    @And("System will show personal greeting as hello {string}")
+    public void systemWillShowPersonalGreetingAsHello(String name) {
+        System.out.println("System displays personal greeting message: Hello "+name);
+    }
 }

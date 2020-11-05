@@ -1,5 +1,6 @@
 package com.library.pages;
 
+import com.library.utils.BrowserUtils;
 import com.library.utils.ConfigurationReader;
 import com.library.utils.Driver;
 import org.openqa.selenium.Keys;
@@ -48,6 +49,9 @@ public class LoginPage extends  BasePage{
             usernameValue = ConfigurationReader.getProperty("student");
             passwordValue = ConfigurationReader.getProperty("student_pass");
         }
+
+        BrowserUtils.visibilityOfElement(usernameInput);
+
 
         usernameInput.sendKeys(usernameValue);
         passwordInput.sendKeys(passwordValue, Keys.ENTER);
