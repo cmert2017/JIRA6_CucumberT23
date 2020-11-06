@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class BookSearchPage extends BasePage{
+public class BookSearchPage_Ivana extends BasePage_Ivana {
 
-    public BookSearchPage(){
+    public BookSearchPage_Ivana(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -16,6 +16,9 @@ public class BookSearchPage extends BasePage{
 
     @FindBy(xpath = "//select[@id='book_categories']")
     public  WebElement selection;
+
+    @FindBy(xpath = "(//span[@class='title'])[3]")
+    public WebElement booksModule;
 
 
 
