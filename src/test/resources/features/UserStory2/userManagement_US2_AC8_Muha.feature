@@ -20,9 +20,23 @@
 #AC#8 - As an authorized user, the Librarian should be able to filter Records by the required number of records from the Show Records dropdown
 #Open for adoption:(Adopt an AC):
 
-Feature: User management
-  @AC
-  Scenario: Searching books
+Feature: Show records functionality
+
+
+  @RecordFunctions
+  Scenario: verify default values in Users page
+    Given user on the login page
+    And user logs in as a "librarian"
+    When user click on "users" link
+    Then show records default value should be 10
+    And show records should have following options:
+      | 5   |
+      | 10  |
+      | 15  |
+      | 50  |
+      | 100 |
+      | 200 |
+      | 500 |
 
     # Muha first commit
     # Muha practice

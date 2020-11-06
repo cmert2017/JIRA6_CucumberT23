@@ -11,12 +11,11 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginStepDefinitions {
+public class LoginStepDefinitions_muha {
 
 
     LoginPage loginPage = new LoginPage();
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @Given("user on the login page")
     public void user_on_the_login_page() {
@@ -26,7 +25,7 @@ public class LoginStepDefinitions {
 
     @When("user logs in as a {string}")
     public void user_logs_in_as_a(String string) {
-        loginPage.login();
+        loginPage.login(string);
     }
 
     @Then("Dashboard should be displayed")
@@ -41,6 +40,20 @@ public class LoginStepDefinitions {
         Assert.assertTrue(actual.contains(expected));
 
         Driver.closeDriver();
+
+    }
+
+    @Then("user should see {string} page")
+    public void user_should_see_page(String string) {
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.urlContains(string));
+
+        String actual = Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actual.contains(string));
+
+        Driver.closeDriver();
+
 
     }
 
