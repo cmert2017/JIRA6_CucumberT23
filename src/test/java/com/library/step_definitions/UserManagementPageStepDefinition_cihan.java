@@ -1,37 +1,39 @@
 package com.library.step_definitions;
 
-import com.library.pages.UserManagementPage;
+import com.library.pages.UserManagementPage_Cihan;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class UserManagementPageStepDefinition_cihan {
 
-    UserManagementPage userManagementPage = new UserManagementPage();
+    UserManagementPage_Cihan userManagementPage = new UserManagementPage_Cihan();
 
-    @Given("user is on the search page")
-    public void user_is_on_the_search_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    @Given("user navigates to {string} page")
+    public void user_navigates_to_page(String string) throws InterruptedException {
+        Thread.sleep(3_000);
+
+        userManagementPage.navigateTo(string);
     }
+
 
 
     @When("user enters the {string}")
-    public void user_enters_the(String string, io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+    public void user_enters_the(String string) throws InterruptedException {
+        Thread.sleep(3_000);
+        userManagementPage.setSearchBox(string);
     }
-    @Then("user should be able to see search results")
-    public void user_should_be_able_to_see_search_results() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+
+
+    @Then("System should display the search Results")
+    public void system_should_display_the_search_results() {
+
+        userManagementPage.checkTableDataInfo();
+
     }
+
 
 
 

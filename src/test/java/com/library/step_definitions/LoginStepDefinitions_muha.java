@@ -11,11 +11,12 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginStepDefinitions_muha {
+public class LoginStepDefinitions {
 
 
     LoginPage loginPage = new LoginPage();
 
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @Given("user on the login page")
     public void user_on_the_login_page() {
@@ -25,62 +26,21 @@ public class LoginStepDefinitions_muha {
 
     @When("user logs in as a {string}")
     public void user_logs_in_as_a(String string) {
-        loginPage.login(string);
-    }
-
-    @Then("Dashboard should be displayed")
-    public void Dashboard_should_be_displayed() {
-
-        String expected = "dashboard";
-
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.urlContains(expected));
-
-        String actual = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actual.contains(expected));
-
-        Driver.closeDriver();
-
-    }
-
-    @Then("user should see {string} page")
-    public void user_should_see_page(String string) {
-
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.urlContains(string));
-
-        String actual = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actual.contains(string));
-
-        Driver.closeDriver();
-
-
-    }
-
-    @When("user log in as a {string}")
-    public void user_log_in_as_a(String string) {
 
         loginPage.login(string);
-    }
-
-    @Then("Books should be displayed")
-    public void Books_should_be_displayed() {
-
-        String expected = "books";
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.urlContains(expected));
-
-        String actual = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actual.contains(expected));
-
-        Driver.closeDriver();
     }
 
 
     @Then("System should display {string}")
-    public void systemShouldDisplay(String LandingPage) {
+    public void systemShouldDisplay(String landingPage) {
+        String expected = landingPage;
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.urlContains(expected));
 
-        System.out.println("System displays  "+ LandingPage);
+        String actual = Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actual.contains(expected));
+
+        System.out.println("System displays  "+ landingPage);
 
 
     }

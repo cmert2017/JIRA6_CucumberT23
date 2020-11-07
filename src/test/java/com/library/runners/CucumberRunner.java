@@ -8,12 +8,13 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
             "html:target/cucumber-report.html",
+             "json:target/cucumber.json",
              "rerun:target/cucumber-rerun.txt"
         },
         features = "src/test/resources/features",
         glue = "com/library/step_definitions",
         dryRun =false,
-        tags = "@allRolesTogether"
+        tags = "@US2_AC5"
 
 )
 public class CucumberRunner {
