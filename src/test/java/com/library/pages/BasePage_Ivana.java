@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public abstract class BasePage {
+public abstract class BasePage_Ivana {
 
-    public BasePage(){
+    public BasePage_Ivana(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
