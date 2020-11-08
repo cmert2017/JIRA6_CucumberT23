@@ -26,48 +26,21 @@ public class LoginStepDefinitions {
 
     @When("user logs in as a {string}")
     public void user_logs_in_as_a(String string) {
-        loginPage.login();
-    }
-
-    @Then("Dashboard should be displayed")
-    public void Dashboard_should_be_displayed() {
-
-        String expected = "dashboard";
-
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.urlContains(expected));
-
-        String actual = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actual.contains(expected));
-
-        Driver.closeDriver();
-
-    }
-
-    @When("user log in as a {string}")
-    public void user_log_in_as_a(String string) {
 
         loginPage.login(string);
     }
 
-    @Then("Books should be displayed")
-    public void Books_should_be_displayed() {
 
-        String expected = "books";
+    @Then("System should display {string}")
+    public void systemShouldDisplay(String landingPage) {
+        String expected = landingPage;
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.urlContains(expected));
 
         String actual = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(actual.contains(expected));
 
-        Driver.closeDriver();
-    }
-
-
-    @Then("System should display {string}")
-    public void systemShouldDisplay(String LandingPage) {
-
-        System.out.println("System displays  "+ LandingPage);
+        System.out.println("System displays  "+ landingPage);
 
 
     }

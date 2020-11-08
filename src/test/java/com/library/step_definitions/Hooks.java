@@ -1,5 +1,6 @@
 package com.library.step_definitions;
 
+import com.library.utils.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -17,7 +18,7 @@ public class Hooks {
 
     @After
     public void tearDown() throws InterruptedException {
-      //  Driver.closeDriver();
+        Driver.closeDriver();
         System.out.println(":::(^_^)End of test execution(*_*):::");
     }
 

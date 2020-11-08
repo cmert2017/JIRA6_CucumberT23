@@ -19,25 +19,24 @@
 #Open for adoption:(adopt an AC):
 #AC#8 - As an authorized user, the Librarian should be able to filter Records by the required number of records from the Show Records dropdown
 #Open for adoption:(Adopt an AC):
+Feature: User management
 
-Feature: Show records functionality
-
-
-  @RecordFunctions
-  Scenario: verify default values in Users page
+  @US2_AC5
+  Scenario Outline: Searching users as Librarian by <searchValue>
     Given user on the login page
     And user logs in as a "librarian"
-    When user click on "users" link
-    Then show records default value should be 10
-    And show records should have following options:
-      | 5   |
-      | 10  |
-      | 15  |
-      | 50  |
-      | 100 |
-      | 200 |
-      | 500 |
+    And user navigates to "<menu>" page
+    When user enters the "<searchValue>"
+    Then System should display the search Results
 
-    # Muha first commit
-    # Muha practice
+    Examples: different search ways and results
+      | menu  | searchValue |
+      | users | UserID      |
+      | users | FullName    |
+      | users | Email       |
+
+
+
+
+
 
