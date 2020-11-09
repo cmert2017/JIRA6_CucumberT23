@@ -20,6 +20,11 @@ public class BookSearchPage_Ivana extends BasePage_Ivana {
     @FindBy(xpath = "(//span[@class='title'])[3]")
     public WebElement booksModule;
 
+    public void setBookCategories(){
+        booksPageLink.click();
+        booksModule.click();
+    }
+
 
 
 
