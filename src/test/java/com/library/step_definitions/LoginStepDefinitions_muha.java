@@ -11,7 +11,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginStepDefinitions {
+public class LoginStepDefinitions_muha {
 
 
     LoginPage loginPage = new LoginPage();

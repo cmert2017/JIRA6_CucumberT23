@@ -26,7 +26,7 @@ public class BookSearchPageStepDefinitions_Ivana {
     @When("I click on a Book Category dropdown")
     public void i_click_on_a_book_category_dropdown() {
 
-        bookSearchPage.booksPageLink();
+        bookSearchPage.booksPageLink.click();
         bookSearchPage.booksModule.click();
         BrowserUtils.clickOnElement(bookSearchPage.bookCategories);
         bookSearchPage.bookCategories.click();
