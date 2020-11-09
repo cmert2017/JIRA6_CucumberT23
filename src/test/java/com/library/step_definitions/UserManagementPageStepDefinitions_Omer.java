@@ -10,33 +10,21 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class UserManagementPageStepDefinitions_muha {
+public class UserManagementPageStepDefinitions_Omer {
 
     UserManagementPage userManagementPage = new UserManagementPage();
     Select select;
 
     @When("user click on {string} link")
     public void i_click_on_link(String link) {
-        BrowserUtils.waitForVisibility(userManagementPage.dashboardPageLink, 5);
+      userManagementPage.searchOmer(link);
 
-        switch (link.toLowerCase()){
-            case "dashboard":
-                userManagementPage.dashboardPageLink.click();
-                break;
-            case "users":
-                userManagementPage.usersPageLink.click();
-                break;
-            case "books":
-                userManagementPage.booksPageLink.click();
-                break;
-        }
     }
 
 
     @Then("show records default value should be {int}")
     public void show_records_default_value_should_be(Integer expected) {
-        BrowserUtils.waitForVisibility(userManagementPage.showRecordsDropdown, 5);
-        select = new Select(userManagementPage.showRecordsDropdown);
+
         String actual = select.getFirstSelectedOption().getText();
         Assert.assertEquals(expected+"", actual);
 

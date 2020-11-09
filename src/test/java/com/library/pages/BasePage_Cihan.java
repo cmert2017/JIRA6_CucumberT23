@@ -18,22 +18,22 @@ public abstract class BasePage_Cihan {
     }
 
     @FindBy(xpath = "/html/head/title")
-    private WebElement pageTitle;
+    protected WebElement pageTitle;
 
     @FindBy(linkText = "Users")
-    private WebElement usersPageLink;
+    protected WebElement usersPageLink;
 
     @FindBy(linkText = "Books")
-    private WebElement booksPageLink;
+    protected WebElement booksPageLink;
 
     @FindBy(linkText = "Dashboard")
-    private WebElement dashboardPageLink;
+    protected WebElement dashboardPageLink;
 
     @FindBy(xpath = "//a[@id='navbarDropdown']/span")
-    private WebElement accountUsername;
+    protected WebElement accountUsername;
 
     @FindBy(xpath = "//*[@id='books']/div[1]/div[1]/span/a")
-    private WebElement addBook;
+    protected WebElement addBook;
 
 
 
