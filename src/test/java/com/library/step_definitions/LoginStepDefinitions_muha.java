@@ -3,6 +3,7 @@ package com.library.step_definitions;
 import com.library.pages.LoginPage;
 import com.library.utils.ConfigurationReader;
 import com.library.utils.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,42 +26,27 @@ public class LoginStepDefinitions {
 
     @When("user logs in as a {string}")
     public void user_logs_in_as_a(String string) {
-        loginPage.login();
+
+        loginPage.login(string);
     }
 
-    @Then("Dashboard should be displayed")
-    public void Dashboard_should_be_displayed() {
 
-        String expected = "dashboard";
-
+    @Then("System should display {string}")
+    public void systemShouldDisplay(String landingPage) {
+        String expected = landingPage;
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.urlContains(expected));
 
         String actual = Driver.getDriver().getCurrentUrl();
         Assert.assertTrue(actual.contains(expected));
 
-        Driver.closeDriver();
+        System.out.println("System displays  "+ landingPage);
+
 
     }
 
-    @When("user log in as a {string}")
-    public void user_log_in_as_a(String string) {
-
-        loginPage.login("student");
+    @And("System will show personal greeting as hello {string}")
+    public void systemWillShowPersonalGreetingAsHello(String name) {
+        System.out.println("System displays personal greeting message: Hello "+name);
     }
-
-    @Then("Books should be displayed")
-    public void Books_should_be_displayed() {
-
-        String expected = "books";
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.urlContains(expected));
-
-        String actual = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actual.contains(expected));
-
-        Driver.closeDriver();
-    }
-
-
 }
